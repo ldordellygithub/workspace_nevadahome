@@ -1,0 +1,30 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Asegura que el padding y borde no desborden los elementos */
+}
+
+/* Estilos globales */
+html, body {
+    font-size: 18px;
+    background-color: #f5f6f7;
+    font-family: Arial, sans-serif; /* Utiliza una fuente más común para textos */
+    color: #333;
+    height: 100%;
+}
+
+a {
+    text-decoration: none;
+    color: inherit; /* Asegura que los links no hereden colores no deseados */
+}
+
+ul, ol {
+    list-style-type: none; /* Quita los bullets de listas si no se usan globalmente */
+}
+
+button {
+    font-family: inherit; /* Asegura que los botones hereden la fuente global */
+    cursor: pointer;
+}
+

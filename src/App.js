@@ -1,24 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
+import './styles/App.css';
+import React from 'react';
+import { BrowserRouter } from 'react-router-dom';
+import AppRoutes from './Routes';  // Importamos las rutas
+import Header from './components/pages/Header';
+import FooterWrapper from './components/pages/FooterWrapper';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Header/>
+      <AppRoutes /> {/* Llamamos a las rutas desde un archivo separado */}
+      <FooterWrapper /> {/* Componente de pie de página */}
+    </BrowserRouter>
   );
 }
 

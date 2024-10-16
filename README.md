@@ -1,70 +1,117 @@
-# Getting Started with Create React App
+# NevadaHome Web App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Bienvenido a **NevadaHome Web App**, un proyecto diseñado para ofrecer una plataforma moderna y eficiente que facilita [describe la funcionalidad principal de la aplicación, como búsqueda de propiedades, gestión de usuarios, etc.]. Este repositorio contiene tanto el código del frontend como el del backend de la aplicación, junto con instrucciones detalladas sobre cómo clonar, configurar y contribuir al proyecto.
 
-## Available Scripts
+## Tabla de Contenidos
+1. [Descripción General](#descripción-general)
+2. [Arquitectura del Proyecto](#arquitectura-del-proyecto)
+3. [Tecnologías Utilizadas](#tecnologías-utilizadas)
+4. [Requisitos Previos](#requisitos-previos)
+5. [Guía de Instalación](#guía-de-instalación)
+6. [Configuración del Entorno](#configuración-del-entorno)
+7. [Ejecución del Proyecto](#ejecución-del-proyecto)
+8. [Comandos de Git para Contribuciones](#comandos-de-git-para-contribuciones)
+9. [Estructura del Proyecto](#estructura-del-proyecto)
+10. [Contribuciones](#contribuciones)
+11. [Licencia](#licencia)
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## Descripción General
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+**NevadaHome Web App** es una aplicación web centrada en [describe el propósito y la visión de la app, por ejemplo: facilitar la compra y venta de propiedades, ofrecer recomendaciones personalizadas a los usuarios, etc.]. Este proyecto está estructurado en dos partes principales: el frontend, desarrollado con **React.js**, y el backend, utilizando **Node.js** y **Express**, junto con **Firebase** para la autenticación y el manejo de datos.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Objetivo del Proyecto
 
-### `npm test`
+El objetivo principal es crear una plataforma escalable, segura y fácil de usar, que permita a los usuarios [describe las funcionalidades clave, como crear cuentas, iniciar sesión, buscar propiedades, guardar favoritos, etc.]. También está diseñada con una arquitectura modular para facilitar su mantenimiento y futuras expansiones.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `npm run build`
+## Arquitectura del Proyecto
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Este proyecto sigue una arquitectura **Frontend-Backend** desacoplada. Aquí tienes una descripción general:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Frontend
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- **React.js**: Manejo de la interfaz de usuario.
+- **Componentización**: Todos los elementos de la interfaz están divididos en componentes reutilizables.
+- **Autenticación con Firebase**: Registro y login mediante Google y correo electrónico.
 
-### `npm run eject`
+### Backend
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- **Node.js** y **Express**: La API RESTful proporciona todos los servicios de backend.
+- **Firebase Admin SDK**: Manejo de la autenticación del lado del servidor.
+- **Base de Datos NoSQL**: Firebase Firestore para almacenamiento de datos.
+- **Validación de Datos**: Uso de middlewares para validar las solicitudes entrantes.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+---
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Tecnologías Utilizadas
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Frontend:
+- **React.js**: Librería de JavaScript para construir interfaces de usuario.
+- **React Router**: Navegación en una sola página (SPA).
+- **CSS y Bootstrap**: Estilización y diseño responsivo.
+- **Firebase Authentication**: Para autenticación de usuarios.
 
-## Learn More
+### Backend:
+- **Node.js**: Entorno de ejecución para JavaScript del lado del servidor.
+- **Express.js**: Framework minimalista para APIs REST.
+- **Firebase Firestore**: Base de datos NoSQL en tiempo real.
+- **Firebase Admin SDK**: Autenticación y gestión de usuarios en el servidor.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+---
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Requisitos Previos
 
-### Code Splitting
+Antes de clonar el proyecto, asegúrate de tener instalados los siguientes programas:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+1. **Node.js** (versión 14.x o superior) - [Descargar aquí](https://nodejs.org/)
+2. **npm** o **yarn** - Normalmente viene con Node.js.
+3. **Git** - Control de versiones - [Descargar aquí](https://git-scm.com/)
+4. **Cuenta en Firebase** - Para configurar autenticación y base de datos.
 
-### Analyzing the Bundle Size
+---
+Estructura del Proyecto
+La estructura del proyecto es modular>> 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-### Making a Progressive Web App
+/client
+    /public             # Archivos públicos (favicon, index.html)
+    /src
+        /components     # Componentes reutilizables
+        /features/Auth  # Funcionalidad de autenticación
+        /pages          # Páginas principales del proyecto
+        /services       # Servicios como Firebase, APIs
+        /styles         # Archivos de estilos CSS
+        /utils          # Funciones y utilidades
+    App.js              # Punto de entrada del frontend
+    index.js            # Renderización principal
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+/server
+    /config             # Configuración de Firebase y otros servicios
+    /controllers        # Lógica del negocio
+    /middlewares        # Validación y middlewares
+    /models             # Modelos de datos
+    /routes             # Definición de rutas de la API
+    app.js              # Punto de entrada del backend
 
-### Advanced Configuration
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## Guía de Instalación
 
-### Deployment
+### 1. Clonar el Repositorio
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Abre la terminal y ejecuta los siguientes comandos para clonar el proyecto:
 
-### `npm run build` fails to minify
+```bash
+git clone 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+cd  worskspace_nevadahome
+cd client
+
+npm install
+ //  Ejecución del Proyecto
+Frontend:
+Para iniciar el servidor de desarrollo del frontend, ejecuta:
+npm start
+

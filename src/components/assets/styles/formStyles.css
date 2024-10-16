@@ -1,0 +1,448 @@
+/* Estilos generales para los contenedores */
+.create-account-container, .sign-in-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f0f4f8;
+  font-family: 'Poppins', sans-serif;
+}
+
+.titulo-pppt{
+  font-size: 22px;
+  font-weight: 700;
+  margin-top: 25px;
+  color: rgb(255, 99, 71)
+}
+
+.create-account-box, .sign-in-box {
+  background-color: #ffffff;
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.15);
+  max-width: 400px;
+  width: auto;
+  transition: all 0.3s ease;
+}
+
+.create-account-box:hover, .sign-in-box:hover {
+  transform: scale(1.03);
+}
+
+/* Diseño flexible para el contenedor de creación de cuenta */
+.create-account-container {
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+/* Título del formulario */
+h1 {
+  font-size: 28px;
+  color: #333333;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+/* Texto descriptivo del formulario */
+.subtext {
+  font-size: 14px;
+  color: #777777;
+  margin-bottom: 25px;
+  text-align: center;
+  line-height: 1.5;
+}
+
+/* Grupos de formularios */
+.form-group {
+  margin-bottom: 25px;
+}
+
+label {
+  font-size: 14px;
+  color: #555555;
+  margin-bottom: 8px;
+  display: block;
+}
+
+/* Estilo para inputs */
+input {
+  width: 100%;
+  padding: 12px 15px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-top: 8px;
+  transition: border-color 0.3s ease;
+  background-color: #f9f9f9;
+}
+
+/* Efectos de enfoque para los inputs */
+input:focus {
+  border-color: #007bff;
+  outline: none;
+  box-shadow: 0 0 8px rgba(0, 123, 255, 0.3);
+  background-color: #ffffff;
+}
+
+/* Mensaje de error */
+.error-text {
+  color: #e74c3c;
+  font-size: 12px;
+  margin-top: 6px;
+  display: block;
+}
+
+/* Botones principales (crear cuenta e iniciar sesión) */
+.create-account-btn, .sign-in-btn {
+  width: 100%;
+  background-color: #007bff;
+  color: white;
+  padding: 14px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.2s ease;
+  margin-top: 15px;
+}
+
+/* Efecto hover para los botones */
+.create-account-btn:hover, .sign-in-btn:hover {
+  background-color: #0056b3;
+  box-shadow: 0px 4px 12px rgba(0, 123, 255, 0.2);
+}
+
+/* Diseño responsive para pantallas más pequeñas */
+@media screen and (max-width: 768px) {
+  .create-account-box, .sign-in-box {
+    padding: 30px;
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+
+  .subtext {
+    font-size: 13px;
+    margin-bottom: 20px;
+  }
+
+  input {
+    padding: 10px;
+  }
+
+  .create-account-btn, .sign-in-btn {
+    padding: 12px;
+    font-size: 15px;
+  }
+}
+
+/* Estilos de accesibilidad */
+input:focus-visible {
+  outline: 2px solid #007bff;
+  outline-offset: 2px;
+}
+
+button:focus-visible {
+  outline: 2px solid #0056b3;
+  outline-offset: 2px;
+}
+
+
+
+/* Contenedor principal del formulario de iniciar sesión */
+.sign-in-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f0f4f8;
+  padding: 20px;
+}
+
+.text-center{
+  position: relative;
+  top: 70px;
+  right: 20%;
+  color: burlywood;
+  font-size: 20px;
+  transition: all 0.3s ease;
+  font-weight: 700;
+}
+
+.sign-in-box {
+  background-color: #ffffff;
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.15);
+  max-width: 400px;
+  width: 100%;
+  transition: all 0.3s ease;
+}
+
+.sign-in-box:hover {
+  transform: scale(1.03);
+}
+
+/* Título para el formulario de iniciar sesión */
+.sign-in-box h1 {
+  font-size: 28px;
+  color: #333333;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+/* Texto descriptivo para la sección de iniciar sesión */
+.sign-in-box .subtext {
+  font-size: 14px;
+  color: #777777;
+  margin-bottom: 25px;
+  text-align: center;
+  line-height: 1.5;
+}
+
+/* Estilo para los grupos de formularios en iniciar sesión */
+.sign-in-box .form-group {
+  margin-bottom: 25px;
+}
+
+.sign-in-box label {
+  font-size: 14px;
+  color: #555555;
+  margin-bottom: 8px;
+  display: block;
+}
+
+/* Campos de entrada para los usuarios en la sección de iniciar sesión */
+.sign-in-box input {
+  width: 100%;
+  padding: 12px 15px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-top: 8px;
+  transition: border-color 0.3s ease;
+  background-color: #f9f9f9;
+}
+
+/* Efectos de enfoque para los inputs de iniciar sesión */
+.sign-in-box input:focus {
+  border-color: #007bff;
+  outline: none;
+  box-shadow: 0 0 8px rgba(0, 123, 255, 0.3);
+  background-color: #ffffff;
+}
+
+/* Botón principal de iniciar sesión */
+.sign-in-btn {
+  width: 100%;
+  background-color: #007bff;
+  color: white;
+  padding: 14px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.2s ease;
+  margin-top: 15px;
+}
+
+/* Efecto hover para el botón de iniciar sesión */
+.sign-in-btn:hover {
+  background-color: #0056b3;
+  box-shadow: 0px 4px 12px rgba(0, 123, 255, 0.2);
+}
+
+/* Mensaje de error en el formulario de iniciar sesión */
+.sign-in-box .error-text {
+  color: #e74c3c;
+  font-size: 12px;
+  margin-top: 6px;
+  display: block;
+}
+
+/* Enlaces para acciones adicionales (como recuperar contraseña) */
+.sign-in-box .forgot-password {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.sign-in-box .forgot-password a {
+  font-size: 14px;
+  color: #007bff;
+  text-decoration: none;
+}
+
+.sign-in-box .forgot-password a:hover {
+  text-decoration: underline;
+}
+
+/* Alternativa para redirigir a crear cuenta */
+.sign-in-box .create-account-link {
+  margin-top: 30px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.sign-in-box .create-account-link a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.sign-in-box .create-account-link a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive adjustments for sign-in form */
+@media screen and (max-width: 768px) {
+  .sign-in-box {
+    padding: 30px;
+  }
+
+  .sign-in-box h1 {
+    font-size: 24px;
+  }
+
+  .sign-in-box .subtext {
+    font-size: 13px;
+    margin-bottom: 20px;
+  }
+
+  .sign-in-box input {
+    padding: 10px;
+  }
+
+  .sign-in-btn {
+    padding: 12px;
+    font-size: 15px;
+  }
+}
+
+a {
+  font-size: 0.85rem;
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+
+.signup-form-container {
+  background-color: #fff;
+  padding: 40px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  margin: auto;
+  text-align: center;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 12px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.create-account-btn {
+  width: 100%;
+  background-color: #007bff;
+  color: white;
+  padding: 12px;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.create-account-btn:hover {
+  background-color: #0056b3;
+}
+
+.or-divider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin: 20px 0;
+}
+
+.or-divider::before,
+.or-divider::after {
+  content: '';
+  flex: 1;
+  border-bottom: 1px solid #ccc;
+}
+
+.or-divider::before {
+  margin-right: 10px;
+}
+
+.or-divider::after {
+  margin-left: 10px;
+}
+
+.google-signin-btn  {
+  width: 100%;
+  background-color: white;
+  border: 1px solid #ccc;
+  color: #757575;
+  padding: 12px 20px;
+  font-size: 1.2rem;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.3s ease-in-out;
+  margin-top: -10px;
+}
+
+
+.google-signin-btn:hover {
+  background-color: #f5f5f5;
+}
+
+.google-icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+}
+
+
+
+.signgoogle-in-btn {
+  width: 100%;
+  background-color: white; /* Color de fondo */
+  border: 1px solid #ccc; /* Bordes sutiles */
+  color: #757575; /* Color del texto */
+  padding: 14px; /* Espaciado interno */
+  font-size: 1.2rem; /* Tamaño de fuente */
+  border-radius: 8px; /* Bordes redondeados */
+  cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+  display: flex; /* Flexbox para alinear el contenido */
+  justify-content: center; /* Centra el contenido horizontalmente */
+  align-items: center; /* Centra el contenido verticalmente */
+  transition: background-color 0.3s ease-in-out, border-color 0.3s ease-in-out; /* Efecto de transición */
+  margin-top: 10px; /* Espacio superior para separación */
+}
+
+.signgoogle-in-btn:hover {
+  background-color: #f0f0f0; /* Color de fondo en hover */
+  border-color: #999; /* Cambiar el color del borde en hover */
+  color: #000; /* Cambiar el color del texto en hover */
+}
+
+.signgoogle-in-btn:active {
+  background-color: #e0e0e0; /* Color de fondo al hacer clic */
+}
+
