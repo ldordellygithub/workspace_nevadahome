@@ -104,9 +104,9 @@ La estructura del proyecto es modular>>
 Abre la terminal y ejecuta los siguientes comandos para clonar el proyecto:
 
 ```bash
-git clone 
 
 cd  worskspace_nevadahome
+git clone https://github.com/ldordellygithub/worskspace_nevadahome.git
 cd client
 
 npm install
