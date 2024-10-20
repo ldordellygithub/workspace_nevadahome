@@ -115,3 +115,6 @@ Frontend:
 Para iniciar el servidor de desarrollo del frontend, ejecuta:
 npm start
 
+//  realizar  nuevos indicaciones  del  proyecto 
+
+
