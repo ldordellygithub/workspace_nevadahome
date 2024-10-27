@@ -411,7 +411,5 @@ $RECYCLE.BIN/
 
 # End of https://www.toptal.com/developers/gitignore/api/node,python,windows,linux,macos
 
-
-# .gitignore
 server/config/firebaseServiceAccount.json
 
