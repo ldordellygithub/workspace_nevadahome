@@ -2,46 +2,47 @@
 // Firebase Initialization and Authentication Script
 // ================================================
 
-// Import the Firebase SDK modules needed for this project.
-// We're importing Firebase core functionality, authentication, and analytics.
+// Importing necessary Firebase modules from the Firebase SDK.
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import { getAuth, GoogleAuthProvider, signInWithPopup, signOut, signInWithEmailAndPassword } from "firebase/auth";
 
-// Firebase configuration object containing keys and identifiers for your project.
-// These values are specific to your Firebase project and should be kept secure.
+// Firebase configuration object containing project-specific identifiers.
+// Ensure these values are kept secure and not exposed in public repositories.
+
+// Importa variables de entorno desde el archivo .env
 const firebaseConfig = {
-  apiKey: "AIzaSyDzC2E-Nu8PW96ZML4YgPtORyTWFc4yzWw", // Your API key for accessing Firebase services.
-  authDomain: "modular-citron-363521.firebaseapp.com", // The domain used for Firebase Authentication.
-  projectId: "modular-citron-363521", // Unique identifier of your Firebase project.
-  storageBucket: "modular-citron-363521.appspot.com", // Google Cloud Storage bucket for file storage.
-  messagingSenderId: "6518862282", // ID for Firebase Cloud Messaging (FCM) to send push notifications.
-  appId: "1:6518862282:web:26bfd164e65defd06e9f33", // Unique ID for this Firebase web application.
-  measurementId: "G-EKYX8HMMSH" // ID for Google Analytics; useful for tracking app usage.
+  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
+  authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.REACT_APP_FIREBASE_APP_ID,
+  measurementId: process.env.REACT_APP_FIREBASE_MEASUREMENT_ID
 };
 
 // ===========================
 // Initialize Firebase services
 // ===========================
 
-// Initialize Firebase application with the configuration object.
-// This is required to set up the Firebase SDK for your app.
+// Initialize the Firebase application with the configuration object.
+// This sets up the Firebase SDK for your app, allowing you to use Firebase services.
 const app = initializeApp(firebaseConfig);
 
 // Initialize Firebase Authentication and link it to the initialized Firebase app.
-// This service manages user authentication, allowing sign-in/sign-out functionality.
+// This service manages user authentication, allowing sign-in and sign-out functionality.
 const auth = getAuth(app);
 
 // Initialize Firebase Analytics, useful for tracking user behavior and events within the app.
-// Make sure Firebase Analytics is enabled in your Firebase console if using this service.
+// Ensure Firebase Analytics is enabled in your Firebase console if you intend to use this service.
 const analytics = getAnalytics(app);
 
 // ==============================
 // Google Authentication Provider
 // ==============================
 
-// Create a new instance of the GoogleAuthProvider object.
-// This allows users to sign in to the app using their Google accounts.
+// Create an instance of the GoogleAuthProvider object.
+// This enables users to sign in to the app using their Google accounts.
 const provider = new GoogleAuthProvider();
 
 /**
@@ -52,19 +53,13 @@ const signInWithGoogle = async () => {
   try {
     // Opens a pop-up window for the user to sign in with their Google account.
     const result = await signInWithPopup(auth, provider);
-    
-    // If sign-in is successful, the 'result' object contains the signed-in user's information.
+    // The 'result' object contains the signed-in user's information.
     const user = result.user;
-    
     console.log("User signed in successfully:", user);
-    // You can now store user data, redirect, or display personalized content here.
-    
-    return user; // Optionally return the signed-in user object for further processing.
+    return user; // Return the signed-in user object for further processing.
   } catch (error) {
-    // Catch and handle any errors during sign-in (e.g., user closed the pop-up, network issues, etc.)
+    // Handle any errors that occur during sign-in.
     console.error("Error during Google sign-in:", error);
-    
-    // Return an error message or rethrow the error depending on how you want to handle it in the app.
     throw new Error("Failed to sign in with Google.");
   }
 };
@@ -75,16 +70,11 @@ const signInWithGoogle = async () => {
  */
 const signOutUser = async () => {
   try {
-    // Sign the user out using Firebase Auth's signOut function.
-    await signOut(auth);
-    
+    await signOut(auth); // Sign the user out using Firebase Auth's signOut function.
     console.log("User signed out successfully.");
-    // You can perform additional actions here, like redirecting the user to a login page.
   } catch (error) {
-    // Catch and log any errors that occur during sign-out.
+    // Handle any errors that occur during sign-out.
     console.error("Error during sign-out:", error);
-    
-    // Optionally, rethrow the error for handling in higher-level functions.
     throw new Error("Failed to sign out.");
   }
 };
@@ -93,15 +83,23 @@ const signOutUser = async () => {
  * Signs the user in using email and password.
  * @param {string} email - The user's email.
  * @param {string} password - The user's password.
- * @returns {Promise} - Returns a promise that resolves with the user's sign-in credentials or an error.
+ * @returns {Promise} - Returns a promise that resolves with the user's sign-in credentials and the JWT token or an error.
  */
 const signInWithEmail = async (email, password) => {
   try {
+    // Attempt to sign in the user with email and password.
     const userCredential = await signInWithEmailAndPassword(auth, email, password);
-    const user = userCredential.user;
+    const user = userCredential.user; // Get the user object from the sign-in credentials.
     console.log("User signed in with email successfully:", user);
-    return user; // Devuelve el usuario autenticado
+    
+    // Obtain the JWT token for the authenticated user.
+    const token = await user.getIdToken();
+    console.log('Token JWT:', token); // Log the JWT token for debugging or testing purposes.
+    
+    // Return both the user and token to allow further processing.
+    return { user, token };
   } catch (error) {
+    // Handle errors that may occur during sign-in.
     console.error("Error during email sign-in:", error);
     throw new Error(error.message || "Failed to sign in with email.");
   }
@@ -111,4 +109,4 @@ const signInWithEmail = async (email, password) => {
 // Export Firebase services
 // ==============================
 // Export these services and functions for use in other parts of your app.
-export { auth, provider, signInWithGoogle, signOutUser, signInWithEmail, analytics };
+export { auth, provider, signInWithGoogle, signOutUser, signInWithEmail, analytics, firebaseConfig };
