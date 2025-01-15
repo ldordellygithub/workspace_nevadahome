@@ -5,6 +5,8 @@ import googleLogo from '../../assets/image/google_720255.png';
 import { signInWithGoogle } from '../../services/firebase.js'; // Asegúrate de que la ruta es correcta
 import { createUserWithEmailAndPassword } from 'firebase/auth'; // Importa el método correcto
 import { auth } from '../../services/firebase.js'; // Importa el objeto auth desde tu configuración de Firebase
+import axios from 'axios';  //   Importa  axios  para  realizar  solicitudes  HTTP
+
 
 const CreateAccountForm = () => {
   const [formData, setFormData] = useState({
@@ -53,9 +55,18 @@ const CreateAccountForm = () => {
     if (Object.keys(validationErrors).length === 0) {
       // Lógica para enviar el formulario (Firebase)
       try {
-        // Usar createUserWithEmailAndPassword para registrar el usuario
-        await createUserWithEmailAndPassword(auth, formData.email, formData.password);
-        alert('Cuenta creada con éxito, redirigiendo al Dashboard...');
+
+        const userCredential = await createUserWithEmailAndPassword(auth, formData.email, formData.password);
+        const user = userCredential.user;
+        
+        // Guardar el usuario en MongoDB
+        await axios.post('/api/users', {
+          uid: user.uid,
+          email: formData.email,
+          name: formData.name,
+          role: 'USER', // Puedes ajustar esto según sea necesario
+        });
+
         navigate('/dashboard'); // Redirigir al Dashboard después de crear la cuenta
       } catch (error) {
         alert(error.message); // Mostrar el mensaje de error al usuario
