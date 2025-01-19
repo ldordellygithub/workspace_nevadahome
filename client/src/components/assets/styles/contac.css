@@ -13,8 +13,11 @@ body {
 
 h1 {
     font-size: 22px;
-    color:  bisque;
-    text-align: center;
+    color:  lightblue;
+    text-align: left;
     margin-top: 20px;
     padding: 10px;
+    font-weight: 700;
   }
+
+  /*este  va  hacer  el    nuevo  formato no  modifiques*/
