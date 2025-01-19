@@ -2,8 +2,9 @@ Propuesta Profesional del Portal Web Interactivo para Nevada Home Energy
 
 1. Estructura del Portal Web
    
-Página Principal (Home)
+PAGINA PRINCIPAL (Home)
 Banner Principal: Imagen destacada de alta resolución con eslogan y misión de Nevada Home Energy.
+
 Sección de Servicios Destacados: Resumen visual con íconos y descripciones breves de los servicios principales.
 
 Testimonios de Clientes: Carrusel de opiniones y experiencias de clientes satisfechos con fotos y calificaciones.
