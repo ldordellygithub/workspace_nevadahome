@@ -18,7 +18,11 @@ h1 {
     margin-top: 20px;
     padding: 10px;
     font-weight: 700;
+<<<<<<< HEAD
     font-family: verdana;
+=======
+    font-family: 'Roboto', sans-serif;
+>>>>>>> 3fd32aa563bde2f180ad1ccc5ae13315c0a60392
   }
 
   /*este  va  hacer  el    nuevo  formato no  modifiques*/
